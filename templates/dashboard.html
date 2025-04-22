@@ -13,16 +13,12 @@
 <body>
   <h1>🚀 Factory Status Dashboard</h1>
   {% for id, info in status.items() %}
+    {% set css_class = 'error' if info.status == 'Error' else 'ok' %}
     <div class="box">
       <h2>{{ id }}</h2>
-      <p>Status: <strong class="{{ 'error' if info.status == 'Error' else 'ok' }}">{{ info.status }}</strong></p>
+      <p>Status: <strong class="{{ css_class }}">{{ info.status }}</strong></p>
       <p>Message: {{ info.message }}</p>
     </div>
   {% endfor %}
 </body>
-  <script>
-  setInterval(() => {
-    window.location.reload();
-  }, 5000); // 5초마다 자동 새로고침
-</script>
 </html>
