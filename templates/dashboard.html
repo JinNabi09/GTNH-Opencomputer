@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Factory Dashboard</title>
+  <meta http-equiv="refresh" content="5">
+  <style>
+    body { font-family: sans-serif; padding: 2rem; }
+    .box { border: 1px solid #ccc; padding: 1rem; margin: 1rem 0; border-radius: 10px; }
+    .error { color: red; }
+    .ok { color: green; }
+  </style>
+</head>
+<body>
+  <h1>🚀 Factory Status Dashboard</h1>
+  {% for id, info in status.items() %}
+    <div class="box">
+      <h2>{{ id }}</h2>
+      <p>Status: <strong class="{{ 'error' if info.status == 'Error' else 'ok' }}">{{ info.status }}</strong></p>
+      <p>Message: {{ info.message }}</p>
+    </div>
+  {% endfor %}
+</body>
+</html>
