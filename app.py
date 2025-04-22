@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
@@ -28,3 +29,8 @@ def update():
 @app.route("/status")
 def status_json():
     return jsonify(status_data)
+
+# 🧠 ✅ 이 부분이 가장 중요함!!
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
